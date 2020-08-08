@@ -123,6 +123,8 @@ if ~isempty(varargin) && strcmpi(varargin{1}, 'getmeta')
   finfo.meta.img_meta = img_metadata;
 end
 
+fclose(fid)
+
 function [attrib, count, flag] = readHeader(fid, attrib, count)
 attrib(count).nameLength = fread(fid, 1, 'uint32');
 attrib(count).dataLength = fread(fid, 1, 'uint64');
